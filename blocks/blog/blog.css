@@ -16,9 +16,11 @@
   .blog .blog-card-body {
     margin: 16px;
   }
+
   .blog .blog-card-body h3 {
     font-size: 1.1em;
   }
+
   .blog .blog-card-body p {
     font-size: 0.8em;
     overflow: hidden;
@@ -28,6 +30,7 @@
     -webkit-box-orient: vertical;
 
   }
+  
   .blog .blog-card-body a {
     font-size: 0.8em;
 
