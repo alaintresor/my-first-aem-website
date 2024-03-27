@@ -7,25 +7,22 @@ async function fetchData(jsonURL) {
 
 async function createListItems(jsonURL) {
   const { pathname } = new URL(jsonURL);
-  console.log("pathname:", pathname);
   const { data } = await fetchData(pathname);
-  console.log("data:", data);
   const listItems = data.map((item) => {
-    const li = document.createElement("li");
-    const img = document.createElement("img");
+    const li = document.createElement('li');
+    const img = document.createElement('img');
     img.src = item.imageurl;
     img.alt = item.title;
-    img.className = "blog-card-image";
-    const div = document.createElement("div");
-    div.className = "blog-card-body";
-    const title = document.createElement("h3");
+    img.className = 'blog-card-image';
+    const div = document.createElement('div');
+    div.className = 'blog-card-body';
+    const title = document.createElement('h3');
     title.textContent = item.title;
-    const description = document.createElement("p");
+    const description = document.createElement('p');
     description.textContent = item.description;
-    const link = document.createElement("a");
-    const { pathname } = new URL(item.articleurl);
-    link.href = pathname;
-    link.textContent = "Read more";
+    const link = document.createElement('a');
+    link.href = new URL(item.articleurl).pathname;
+    link.textContent = 'Read more';
     div.append(title, description, link);
     li.append(img, div);
     return li;
@@ -35,12 +32,10 @@ async function createListItems(jsonURL) {
 
 export default async function decorate(block) {
   const jsonURL = block.querySelector('a[href$=".json"]');
-  const parientDiv = document.createElement("div");
-  console.log("here:", jsonURL);
-  const ul = document.createElement("ul");
+  const ul = document.createElement('ul');
   const listItems = await createListItems(jsonURL);
   listItems.forEach((li) => ul.appendChild(li));
 
-  block.textContent = "";
+  block.textContent = '';
   block.append(ul);
 }
