@@ -1,16 +1,49 @@
-.countries table,
-th {
-    border: 1px solid black;
-    background-color: cornflowerblue;
-}
+.blog > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(308px, 1fr));
+    grid-gap: 16px;
+  }
+  
+  .blog > ul > li {
+    /* border: 1px solid var(--dark-color); */
+    background-color: var(--background-color);
+    border-radius: 18px;
+  }
+  
+  .blog .blog-card-body {
+    margin: 16px;
+  }
+  .blog .blog-card-body h3 {
+    font-size: 1.1em;
+  }
+  .blog .blog-card-body p {
+    font-size: 0.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
-.countries table,
-td {
-    border: 1px solid black;
-    background-color: aliceblue;
-}
+  }
+  .blog .blog-card-body a {
+    font-size: 0.8em;
 
-.countries .region-select>select {
-    width: 40%;
-    font-size: large;
-}
+  }
+  
+  .blog .blog-card-image {
+    line-height: 0;
+  }
+  
+  .blog .blog-card-body > *:first-child {
+    margin-top: 0;
+  }
+  
+  .blog > ul > li img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  
