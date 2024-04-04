@@ -8,7 +8,8 @@ async function fetchData(jsonURL) {
 async function createListItems(jsonURL) {
   const { pathname } = new URL(jsonURL);
   const { data } = await fetchData(pathname);
-  const listItems = data.map((item) => {
+  const filtedData = data.filter((item) => item.hidden !== 'true');
+  const listItems = filtedData.map((item) => {
     const li = document.createElement('li');
     const img = document.createElement('img');
     img.src = item.imageurl;

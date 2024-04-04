@@ -1,0 +1,5 @@
+.like .container span{
+    font-size: 0.8em;
+    cursor: pointer;
+    padding-right: 5px;
+}
